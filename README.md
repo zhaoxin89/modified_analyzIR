@@ -3,6 +3,7 @@
 
 # add nirs-toolbox to Matlab paths 
 toolbox_path = 'C:\fNIRS\nirs-toolbox';
+
 addpath(genpath(toolbox_path));
 
 # load IHM data
