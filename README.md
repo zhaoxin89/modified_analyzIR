@@ -11,10 +11,7 @@ raw.draw;
 close;
 raw.gui;
 
-# perform OD and BLL calculation. Note that we can 
-#add jobs sequentially and call jobs.run to execute 
-#jobs while passing the outcome of one job to another
-
+# perform OD and BLL calculation. Note that we can add jobs sequentially and call jobs.run to execute jobs while passing the outcome of one job to another
 jobs = nirs.modules.OpticalDensity();
 jobs = nirs.modules.BeerLambertLaw(jobs);
 Hb = jobs.run(raw);
@@ -29,7 +26,6 @@ setpaths;
 Hb(isnan(Hb)) = 0;
 
 # apply lowpass filter to hemoglobin concentrations 
-
 jobs = nirs.modules.Run_HOMER2();
 jobs.fcn = 'hmrBandpassFilt';
 jobs.vars.lpf = 0.1;
