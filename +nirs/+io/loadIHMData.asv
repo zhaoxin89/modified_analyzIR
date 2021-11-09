@@ -36,7 +36,6 @@ end
             d = load(filenames{iFile}); 
             
             d = d.DATA_NIRS(hemi,:);
-            
             for i = 1:7
                 n = cellfun(@numel,d{i});
                 m = min(n,[],'all');
@@ -48,17 +47,12 @@ end
             for z = 1:6
                 for x = 1: 5
                     for g = 1:14
-                        d{z}{x,g}(1,:) = d{z}{x,g} - d{7}{x,g}(1,:);
+                        d{z}{x,g} = d{z}{x,g} - d{7}{x,g};
                     end
                 end
+                d1 = [d1, reshape(d{z}, [1,70])];
             end
-            d(7) = [];
-            
-            for z = 1:6
-                d1 = [d1, reshape(d{z}', [70,1])];
-            end
-            d1 = reshape(d1',[420,1]);
-            d1 = cell2mat(d1)';
+            d1 = 
             % put into data class
             thisFile = nirs.core.Data();
             thisFile.description = filenames{iFile};
@@ -87,6 +81,7 @@ end
                 end
             end
             
+            
             % stimulus vector
             if isfield(d,'StimDesign')
                 thisFile.stimulus = nirs.util.convertStimDesignStruct( d.StimDesign,d.t );
@@ -114,6 +109,7 @@ end
                     end
                 end
                 thisFile.stimulus=stims;
+                
             end
 
             % demographics for group level
@@ -161,6 +157,12 @@ end
             else
                 warning(err.message)
             end
+            
         end
+        
+        
     end
+
+
 end
+
