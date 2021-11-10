@@ -2,7 +2,7 @@ function h = gui(obj)
 % this launchs the NIRSviewer GUI for this data
 
 h=figure('Tag','nirsviewer');
-set(h,'MenuBar','none');
+%set(h,'MenuBar','none');
 
 handles=guihandles(h);
 handles.axis_main = axes('parent',h,...
