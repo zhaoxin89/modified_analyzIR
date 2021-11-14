@@ -1,4 +1,4 @@
-function dist_g = getdistance()
+function DPF_val = getdpf(dist_l)
 % % Hemoglobin
 % http://omlc.ogi.edu/spectra/hemoglobin/
 % scott prahl
@@ -12,8 +12,11 @@ function dist_g = getdistance()
 % Missouri-Kansas City, (1981).
 
     try
-        dist_g = load([fileparts(which('nirs.media.getdistance')) filesep 'Tab_distance2.mat']);
+        load([fileparts(which('nirs.media.getdpf')) filesep 'dpf1010.mat']);
+        k = ismember(DPFnorm(1,:), dist_l);
+        DPF_val = DPFnorm(:,k);
+        DPF_val(1,:) = [];
     catch
-        dist_g = load('Tab_distance2.mat');
+        dist_g = load('dpf1010.mat');
     end
 end

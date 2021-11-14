@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.3.0">
+  <zoom_level>8</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>176</x>
+      <y>320</y>
+      <w>168</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes>nirs.io.loadIHMData
+--
+load raw data</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>576</x>
+      <y>320</y>
+      <w>184</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes>nirs.modules.AverageChannels
+--
+average channel data into three groups based on S-D distances
+style=wordwrap</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>808</x>
+      <y>408</y>
+      <w>168</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes>nirs.modules.OpticalDensity3
+--
+calculate OD  = -log(I/I0)
+style=wordwrap</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1016</x>
+      <y>320</y>
+      <w>168</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes>nirs.modules.BeerLambertLaw
+--
+calculate OD  = -log(I/I0)
+style=wordwrap</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>808</x>
+      <y>232</y>
+      <w>168</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes>nirs.modules.OpticalDensity
+--
+calculate OD  = -log(I/mean(I))
+style=wordwrap</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>808</x>
+      <y>320</y>
+      <w>168</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes>nirs.modules.OpticalDensity2
+--
+calculate OD  = -log(I_t2/I_t1)
+style=wordwrap</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>376</x>
+      <y>320</y>
+      <w>168</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes>TODO
+--
+calculate quality index
+remove channels with low QI</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>336</x>
+      <y>344</y>
+      <w>56</w>
+      <h>24</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>50.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>536</x>
+      <y>344</y>
+      <w>56</w>
+      <h>24</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>50.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Text</id>
+    <coordinates>
+      <x>176</x>
+      <y>240</y>
+      <w>424</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>Braindex Nirs Data Processing Pipeline
+style=wordwrap</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Text</id>
+    <coordinates>
+      <x>0</x>
+      <y>392</y>
+      <w>216</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>use windowed data as input for real time purpose
+style=wordwrap</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>120</x>
+      <y>352</y>
+      <w>56</w>
+      <h>48</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes>50.0;10.0;10.0;40.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>488</x>
+      <y>408</y>
+      <w>168</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes>TODO
+--
+calculate average DPF
+regarding channel groups</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>488</x>
+      <y>376</y>
+      <w>48</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>40.0;30.0;10.0;10.0</additional_attributes>
+  </element>
+</diagram>

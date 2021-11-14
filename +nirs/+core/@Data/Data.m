@@ -12,6 +12,9 @@ classdef Data
     %                    (e.g. stimulus('tapping') returns a StimulusEvents Object)
     %     demographics - a Dictionary object containing demographics info
     %                    (e.g. demographics('age') returns 28)
+    %     data_I0      - 1 x 18 vector containing the value at t0
+    %     DPF_mean     - 6 x 3 array containing the averaged DPF 
+    %     is_first_epoch - true if the data is the first epoch. Used for RT
     % 
     %     
     %  Methods:
@@ -26,10 +29,13 @@ classdef Data
         auxillary = Dictionary();  % to hold generic time series information
         stimulus        = Dictionary();	% struct containing stim vectors (vectors, names, types)
         demographics    = Dictionary();	% table containing demographics (names, values)
+        data_I0 = zeros(1,18);           % array containing the very first value
+        DPF_mean = 0.1*ones(6,3);          % array containing the averaged DPF
+        is_first_epoch = false;
     end
     
     properties( Dependent = true )
-        Fs = 0;             % sampling frequency in Hz
+        Fs = 0;            % sampling frequency in Hz
     end
 
     methods
