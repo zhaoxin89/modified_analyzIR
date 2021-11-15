@@ -67,7 +67,7 @@ cd 'C:\fNIRS\homer2'
 setpaths;
 
 # check and correct data if necessary
-Hb(isnan(Hb)) = 0;
+Hb_total(isnan(Hb_total)) = 0;
 
 # apply lowpass filter to hemoglobin concentrations 
 jobs = nirs.modules.Run_HOMER2();
