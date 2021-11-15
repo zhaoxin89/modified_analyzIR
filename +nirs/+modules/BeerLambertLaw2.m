@@ -1,10 +1,10 @@
 classdef BeerLambertLaw2 < nirs.modules.AbstractModule
 %% BeerLambertLaw - Converts optical density to hemoglobin.
 % 2021.11 Xin ZHAO
-% dOD(lambda) = absor(hbo, lambda) * conc(hbo) * distance * PPF + ...
-%         absor(hbr, lambda) * conc(hbr) * distance * PPF;
-%             = 1/log(e){ext(hbo, lambda) * conc(hbo) * distance * PPF + ...
-%         ext(hbr, lambda) * conc(hbr) * distance * PPF;}
+% dOD(lambda) = absor(hbo, lambda) * conc(hbo) * distance * DPF + ...
+%         absor(hbr, lambda) * conc(hbr) * distance * DPF;
+%             = 1/log(e){ext(hbo, lambda) * conc(hbo) * distance * DPF + ...
+%         ext(hbr, lambda) * conc(hbr) * distance * DPF;}
 %
 %
 % Options: 
@@ -16,7 +16,7 @@ classdef BeerLambertLaw2 < nirs.modules.AbstractModule
     
     methods
 
-        function obj = BeerLambertLaw( prevJob )
+        function obj = BeerLambertLaw2( prevJob )
            obj.name = 'Beer-Lambert Law 2';
            if nargin > 0
                obj.prevJob = prevJob;
@@ -140,22 +140,23 @@ classdef BeerLambertLaw2 < nirs.modules.AbstractModule
                     assert( length(lst) > 1 )
                     
                     lambda = p.link.type(lst);
-                    ext = nirs.media.getspectra( lambda );
-                    
+                    %ext = nirs.media.getspectra( lambda );
+                    ext = nirs.media.getModExtCoef( lambda);
                     clist = [1 2]; % hbo and hbr; need to fix this
                     
                     % extinction coefficients
                     E = ext(:,clist);
                     
-                    % distances
-                    L = p.distances(lst);
-                    L=max(L,1);  % avoid issues with the short (0) seperation values
+                    % conversion from molar absorption coefficient (small alpha)
+                    % to molar extinction coefficient  
                     
-                    if(length(obj.PPF)==1)
-                        PPF=repmat(obj.PPF,length(lambda),1);
-                    else
-                        PPF=obj.PPF(:);
-                    end
+                    E = E.*(1/(1/log10(exp(1))));
+                    
+                    % distances
+                    L = p.avr_distances(lst);
+                    L=max(L,1);  % avoid issues with the short (0) seperation values
+ 
+                    PPF = data(i).DPF_mean(:,j);
                     
                     if(length(lambda)>2)
                         r=mad(d(:,lst)',1,2);

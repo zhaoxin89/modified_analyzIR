@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <diagram program="umlet" version="14.3.0">
-  <zoom_level>8</zoom_level>
+  <zoom_level>9</zoom_level>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>176</x>
-      <y>320</y>
-      <w>168</w>
-      <h>56</h>
+      <x>567</x>
+      <y>585</y>
+      <w>189</w>
+      <h>63</h>
     </coordinates>
     <panel_attributes>nirs.io.loadIHMData
 --
@@ -17,24 +17,25 @@ load raw data</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>576</x>
-      <y>320</y>
-      <w>184</w>
-      <h>56</h>
+      <x>792</x>
+      <y>486</y>
+      <w>243</w>
+      <h>72</h>
     </coordinates>
     <panel_attributes>nirs.modules.AverageChannels
 --
 average channel data into three groups based on S-D distances
+average DPF based on group distance
 style=wordwrap</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>808</x>
-      <y>408</y>
-      <w>168</w>
-      <h>56</h>
+      <x>1071</x>
+      <y>486</y>
+      <w>189</w>
+      <h>63</h>
     </coordinates>
     <panel_attributes>nirs.modules.OpticalDensity3
 --
@@ -45,24 +46,24 @@ style=wordwrap</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1016</x>
-      <y>320</y>
-      <w>168</w>
-      <h>56</h>
+      <x>1296</x>
+      <y>576</y>
+      <w>225</w>
+      <h>63</h>
     </coordinates>
     <panel_attributes>nirs.modules.BeerLambertLaw
 --
-calculate OD  = -log(I/I0)
+calculate OD  = 1/log(e){ext(hb, lambda) * conc(hb) * distance * DPF}
 style=wordwrap</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>808</x>
-      <y>232</y>
-      <w>168</w>
-      <h>56</h>
+      <x>1071</x>
+      <y>576</y>
+      <w>189</w>
+      <h>63</h>
     </coordinates>
     <panel_attributes>nirs.modules.OpticalDensity
 --
@@ -73,10 +74,10 @@ style=wordwrap</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>808</x>
-      <y>320</y>
-      <w>168</w>
-      <h>56</h>
+      <x>1071</x>
+      <y>666</y>
+      <w>189</w>
+      <h>63</h>
     </coordinates>
     <panel_attributes>nirs.modules.OpticalDensity2
 --
@@ -87,10 +88,10 @@ style=wordwrap</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>376</x>
-      <y>320</y>
-      <w>168</w>
-      <h>56</h>
+      <x>567</x>
+      <y>486</y>
+      <w>189</w>
+      <h>63</h>
     </coordinates>
     <panel_attributes>TODO
 --
@@ -101,21 +102,21 @@ remove channels with low QI</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>336</x>
-      <y>344</y>
-      <w>56</w>
-      <h>24</h>
+      <x>648</x>
+      <y>540</y>
+      <w>27</w>
+      <h>63</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>50.0;10.0;10.0;10.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;50.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>536</x>
-      <y>344</y>
-      <w>56</w>
-      <h>24</h>
+      <x>747</x>
+      <y>513</y>
+      <w>63</w>
+      <h>27</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
     <additional_attributes>50.0;10.0;10.0;10.0</additional_attributes>
@@ -123,22 +124,23 @@ remove channels with low QI</panel_attributes>
   <element>
     <id>Text</id>
     <coordinates>
-      <x>176</x>
-      <y>240</y>
-      <w>424</w>
-      <h>32</h>
+      <x>567</x>
+      <y>441</y>
+      <w>477</w>
+      <h>36</h>
     </coordinates>
     <panel_attributes>Braindex Nirs Data Processing Pipeline
-style=wordwrap</panel_attributes>
+style=wordwrap
+fontsize=20</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Text</id>
     <coordinates>
-      <x>0</x>
-      <y>392</y>
-      <w>216</w>
-      <h>40</h>
+      <x>567</x>
+      <y>684</y>
+      <w>198</w>
+      <h>45</h>
     </coordinates>
     <panel_attributes>use windowed data as input for real time purpose
 style=wordwrap</panel_attributes>
@@ -147,37 +149,88 @@ style=wordwrap</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>120</x>
-      <y>352</y>
-      <w>56</w>
-      <h>48</h>
+      <x>1026</x>
+      <y>513</y>
+      <w>63</w>
+      <h>27</h>
     </coordinates>
-    <panel_attributes/>
-    <additional_attributes>50.0;10.0;10.0;40.0</additional_attributes>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>50.0;10.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>488</x>
-      <y>408</y>
-      <w>168</w>
-      <h>56</h>
+      <x>1296</x>
+      <y>486</y>
+      <w>225</w>
+      <h>63</h>
     </coordinates>
-    <panel_attributes>TODO
+    <panel_attributes>nirs.modules.ShortChannelRegression
 --
-calculate average DPF
-regarding channel groups</panel_attributes>
+Ac = Al - alpha * As</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>488</x>
-      <y>376</y>
-      <w>48</w>
-      <h>40</h>
+      <x>1251</x>
+      <y>513</y>
+      <w>63</w>
+      <h>27</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>40.0;30.0;10.0;10.0</additional_attributes>
+    <additional_attributes>50.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1395</x>
+      <y>540</y>
+      <w>27</w>
+      <h>54</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;40.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>1350</x>
+      <y>666</y>
+      <w>126</w>
+      <h>63</h>
+    </coordinates>
+    <panel_attributes>Issue 2
+--
+alpha too large
+
+fg=red</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>846</x>
+      <y>585</y>
+      <w>126</w>
+      <h>63</h>
+    </coordinates>
+    <panel_attributes>Issue 1
+--
+where to insert filters
+
+fg=red</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>648</x>
+      <y>639</y>
+      <w>27</w>
+      <h>63</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;50.0</additional_attributes>
   </element>
 </diagram>
