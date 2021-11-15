@@ -13,9 +13,13 @@ raw = nirs.io.loadIHMData('DATA_NIRSOP4.mat');
 
 # build pipeline and perform OD and BLL calculation. 
 #Note that we can add jobs sequentially and call jobs.run to execute jobs while passing the outcome of one job to another
+
 jobs = nirs.modules.AverageChannels()
+
 jobs = nirs.modules.OpticalDensity3(jobs);
+
 jobs = nirs.modules.ShortChannelRegression(jobs);
+
 jobs = nirs.modules.BeerLambertLaw2(jobs);
 
 # split raw data into spochs (as if the signals are processed in real time) and apply pipeline
