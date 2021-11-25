@@ -1,5 +1,4 @@
-![workflow](https://user-images.githubusercontent.com/20672666/141788056-6bd2ed09-f615-4eb2-b530-e7a707af38bd.jpg)
-
+![workflow](https://user-images.githubusercontent.com/20672666/142181395-6bdcea45-b919-4293-8b26-7da53859a56c.jpg)
 # usage: 
 
 # add nirs-toolbox to Matlab paths 
@@ -67,7 +66,7 @@ cd 'C:\fNIRS\homer2'
 setpaths;
 
 # check and correct data if necessary
-Hb(isnan(Hb)) = 0;
+Hb_total(isnan(Hb_total)) = 0;
 
 # apply lowpass filter to hemoglobin concentrations 
 jobs = nirs.modules.Run_HOMER2();
