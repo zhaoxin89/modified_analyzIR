@@ -153,7 +153,11 @@ classdef BeerLambertLaw2 < nirs.modules.AbstractModule
                     E = E.*(1/(1/log10(exp(1))));
                     
                     % distances
-                    L = p.avr_distances(lst);
+                    if isempty(p.avr_distances)
+                        L = 9;
+                    else
+                        L = p.avr_distances(lst);
+                    end
                     L=max(L,1);  % avoid issues with the short (0) seperation values
  
                     PPF = data(i).DPF_mean(:,j);
@@ -171,6 +175,7 @@ classdef BeerLambertLaw2 < nirs.modules.AbstractModule
                     % mbll model
                     EL = bsxfun( @times, E, w*L.*PPF );
                     
+                    EL(isinf(EL)|isnan(EL)) = 0;
                     iEL = pinv(EL);
                     
                     % calculates chromophore concentration (uM)

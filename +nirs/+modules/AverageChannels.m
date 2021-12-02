@@ -28,7 +28,7 @@ classdef AverageChannels < nirs.modules.AbstractModule
                 uv = unique(d_s_round); 
                 n = histc( d_s_round,uv);
                 dist_s_mean = mean(dist_v(v));
-                if(data(i).is_first_epoch == true)
+                %if(data(i).is_first_epoch == true)
                     dpf = nirs.media.getdpf(uv);
                     dpf_s = zeros(6,1);
                     for j = 1:length(n)
@@ -36,7 +36,7 @@ classdef AverageChannels < nirs.modules.AbstractModule
                     end
                     dpf_s = dpf_s./sum(n);
                     
-                end
+                %end
                 
                 v = find((9 < dist_v) & (dist_v < 39)); %middle distance
 				d_m = d(:,v);
@@ -46,7 +46,7 @@ classdef AverageChannels < nirs.modules.AbstractModule
                 uv = unique(d_m_round);
                 n = histc( d_m_round,uv);
                 dist_m_mean = mean(dist_v(v));
-                if(data(i).is_first_epoch == true)
+                %if(data(i).is_first_epoch == true)
                     dpf = nirs.media.getdpf(uv);
                     dpf_m = zeros(6,1);
                     for j = 1:length(n)
@@ -54,7 +54,7 @@ classdef AverageChannels < nirs.modules.AbstractModule
                     end
                     dpf_m = dpf_m./sum(n);
                     
-                end
+                %end
                 
                 v = find(dist_v() >= 39); %large distance
 				d_l = d(:,v);
@@ -64,7 +64,7 @@ classdef AverageChannels < nirs.modules.AbstractModule
                 uv = unique(d_l_round);
                 n = histc( d_l_round,uv);
                 dist_l_mean = mean(dist_v(v));
-                if(data(i).is_first_epoch == true)
+                %if(data(i).is_first_epoch == true)
                     dpf = nirs.media.getdpf(uv);
                     dpf_l = zeros(6,1);
                     for j = 1:length(n)
@@ -72,8 +72,17 @@ classdef AverageChannels < nirs.modules.AbstractModule
                     end
                     dpf_l = dpf_l./sum(n);
                     
+                %end
+                
+                if isempty(d_s_mean)
+                    d_s_mean = zeros(100,6);
                 end
-
+                if isempty(d_m_mean)
+                    d_m_mean = zeros(100,6);    
+                end
+                if isempty(d_l_mean)
+                    d_l_mean = zeros(100,6);    
+                end
                 d_mean = [d_s_mean, d_m_mean, d_l_mean];
                 
                 %d = bsxfun( @plus, -log(d), log(m) );
@@ -82,8 +91,9 @@ classdef AverageChannels < nirs.modules.AbstractModule
                 
                 if(data(i).is_first_epoch == true)
                     data(i).data_I0 = d_mean(1,:); % store the I0 data for calc. Log
-                    data(i).DPF_mean = [dpf_s, dpf_m, dpf_l]; % calc. DPF mean value
                 end
+                    data(i).DPF_mean = [dpf_s, dpf_m, dpf_l]; % calc. DPF mean value
+                %end
                                     
                 iSrc = ones(18,1);
                 iDet = repelem([1 2 3]', 6);
