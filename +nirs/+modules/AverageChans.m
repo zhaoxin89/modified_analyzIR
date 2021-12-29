@@ -1,10 +1,10 @@
-classdef AverageChannels < nirs.modules.AbstractModule
+classdef AverageChans < nirs.modules.AbstractModule
 %% AverageChannels - average raw channel data based on 3 distance groups (created by zhaoxin).
 % 
 % dOD = -log( raw/raw_0 )
 
     methods
-        function obj = AverageChannels( prevJob )
+        function obj = AverageChans( prevJob )
            obj.name = 'Average Channels';
            if nargin > 0
                obj.prevJob = prevJob;

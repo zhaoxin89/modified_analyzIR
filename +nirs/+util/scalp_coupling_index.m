@@ -24,7 +24,7 @@ fpower=zeros(height(link),1);
 for i=1:height(link)
     lst=find(idx==i);
     nirs_data1=data.data(:,lst(1));
-    nirs_data2=data.data(:,lst(2));
+    nirs_data2=data.data(:,lst(6));
     
 
 % Filter everything bu the cardiac component

@@ -33,6 +33,7 @@ classdef Data
         DPF_mean = 0.1*ones(6,3);          % array containing the averaged DPF
         is_excluded = zeros(1, 420); % array containing information 0: not excluded 1: excluded by SQI
         is_first_epoch = false;
+        is_selected = ones(1,420); % 1 -> is selected, 0 -> excluded
     end
     
     properties( Dependent = true )
