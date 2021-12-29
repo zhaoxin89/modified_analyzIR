@@ -28,6 +28,7 @@ classdef Probe
         srcPos      % nsrc x 3 array of source positions (mm)
         detPos      % ndet x 3 array of detector positions (mm)
         types
+        cat         % (dependent) returns category (short, mid, long) th = 9 and 39 respectively
     end
     
     properties(Hidden = true)
@@ -185,6 +186,7 @@ classdef Probe
             else
                 vec = obj.srcPos(isrc,:) - obj.detPos(idet,:);
                 d = sqrt( sum( vec.^2,2 ) );
+                d = round(d);
             end
             
 %             if(~isempty(obj.fixeddistances))

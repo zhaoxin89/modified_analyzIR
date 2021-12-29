@@ -32,6 +32,7 @@ classdef Data
         data_I0 = zeros(1,18);           % array containing the very first value
         DPF_mean = 0.1*ones(6,3);          % array containing the averaged DPF
         is_first_epoch = false;
+        is_selected = ones(1,420); % 1 -> is selected, 0 -> excluded
     end
     
     properties( Dependent = true )
