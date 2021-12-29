@@ -18,6 +18,10 @@ classdef OpticalDensity3 < nirs.modules.AbstractModule
 
                 d0 = data(i).data_I0;
                 
+                if(any(d0) == 0)
+                  d0 = d(1,:) ;
+                end
+                
                 d=-log(d./(ones(size(d,1),1)*d0));
                 
                 %d = bsxfun( @plus, -log(d), log(m) );

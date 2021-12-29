@@ -1,7 +1,10 @@
-
+<<<<<<< HEAD
 ![workflow](https://user-images.githubusercontent.com/20672666/141788056-6bd2ed09-f615-4eb2-b530-e7a707af38bd.jpg)
 ![image](https://user-images.githubusercontent.com/20672666/146216969-44b59430-537d-44f8-ba7e-3aa4e643150e.png)
 
+=======
+![workflow](https://user-images.githubusercontent.com/20672666/142181395-6bdcea45-b919-4293-8b26-7da53859a56c.jpg)
+>>>>>>> a55abe06a7f5693b06f142dcaa7a8bb1e0a2df1b
 # usage: 
 
 # add nirs-toolbox to Matlab paths 

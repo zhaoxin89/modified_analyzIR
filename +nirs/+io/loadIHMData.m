@@ -37,9 +37,16 @@ end
             
             d = d.DATA_NIRS(hemi,:);
             
+            m = 1e9;
             for i = 1:7
-                n = cellfun(@numel,d{i});
-                m = min(n,[],'all');
+               n = cellfun(@numel,d{i});
+               m_t = min(n,[],'all');
+               if m>m_t
+                   m = m_t;
+               end
+            end
+            
+            for i = 1:7
                 d{i} = cellfun(@(x) x(1:m), d{i}, 'UniformOutput', false);
             end
             
